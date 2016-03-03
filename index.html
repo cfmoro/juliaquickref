@@ -60,48 +60,6 @@
               <li> <a  href="#Frontstuff">Front matter</a> </li>
               <li> <a  href="#Invocation"><b>Invocation</b></a> </li>
               <li> <a  href="#REPL"><b>The REPL (interactive command line)</b></a> </li>
-              <li> <a  href="#LexEnt"><b>Lexical entities</b></a> : <a  href="#keywords">keywords</a>,
-                <a  href="#Identifiers">identifiers</a>, <a  href="#Strings">string
-                  literals</a>, <a  href="#BoolConstants"  class="since22">boolean
-                  constants</a>, <a  href="#Numbers">numbers</a>, <a  href="#Sequences">sequences</a>,
-                <a  href="#Dictionaries">dictionaries</a>, <a  href="#Sets">sets</a>,
-                <a  href="#operators">operators</a> </li>
-              <li> <a  href="#BasicTypes"><b>Basic types</b> and their
-                  operations:</a> <a  href="#None">None</a>, <a  href="#bool">bool</a>,
-                <a  href="#NumericTypes">Numeric types</a>, <a  href="#SequenceTypes">sequence
-                  types</a>, <a  href="#list">list</a>, <a  href="#dictionary">dictionary</a>,
-                <a  href="#stringMethods">string</a>, <a  href="#files">file</a>,
-                <a  href="#set"  class="since23">set</a>, <a  href="#namedtuples"
-                   class="since26">named tuples</a>, <a  href="#dates">date/time</a></li>
-              <li> <a  href="#AdvTypes"><b>Advanced types</b></a> </li>
-              <li> <a  href="#Statements"><b>Statements</b>: </a> <a  href="#assignmentOps">assignment</a>,
-                <a  href="#conditionalExpr"  class="since25">conditional
-                  expressions</a>, <a  href="#controlFlowSts">control flow</a>,
-                <a  href="#exceptionSts">exceptions</a>, <a  href="#NameSpaceSts">name
-                  space</a>, <a  href="#FunctionDef">function def</a>, <a  href="#ClassDef">class
-                  def</a></li>
-              <li> <a  href="#Iterators"  class="since22">Iterators</a>; <a  href="#Generators"
-                   class="since22">Generators</a>; <a  href="#Descriptors"  class="since22">Descriptors</a>;
-                <a  href="#Decorators"  class="since24">Decorators</a></li>
-              <li> <a  href="#BuiltIn"><b>Built-in Functions</b></a> </li>
-              <li> <a  href="#BuiltInExc"><b>Built-in Exceptions</b></a> </li>
-              <li> <a  href="#SpecialMethods">Standard <b>methods &amp;
-                    operators redefinition</b> in user-created Classes</a> </li>
-              <li> <a  href="#typeAttributes">Special <b>informative state
-                    attributes</b> for some types</a> </li>
-              <li> <a  href="#ImportantModules">Important <b>modules</b></a> :
-                <a  href="#sysModule">sys</a>, <a  href="#osModule">os</a>, <a
-                   href="#posixModule">posix</a>, <a  href="#posixpathModule">posixpath</a>,
-                <a  href="#shutil">shutil</a>, <a  href="#timeModule">time</a>,
-                <a  href="#stringModule">string</a>, <a  title="Regular Expressions"
-                   href="#reModule">re</a>, <a  href="#mathModule">math</a>,
-                <!-- <a href="#getoptModule">getopt</a> --> <a  href="#compressions">compressions</a>
-              </li>
-              <li> <a  href="#OtherModules"><b>List of modules</b> in the base
-                  distribution</a> </li>
-              <li> <a  href="#Workspace">Workspace exploration and idiom hints</a>
-              </li>
-              <li> <a  href="#Emacs">Python mode for Emacs</a> </li>
             </ul>
             <!-- FRONT STUFF -->
             <h2> <a  name="Frontstuff"  id="Frontstuff"></a> Front matter </h2>
@@ -1184,7 +1142,7 @@
   <tr>
     <td> <b>Char<b> </td>
     <td> Represents a 32 bit character (UTF-8 symbol)</td>
-    <td> 'A'</td>
+    <td> <b>'</b>A<b>'</b></td>
   </tr>
   <tr>
     <td> Char(n) </td>
@@ -1194,15 +1152,75 @@
   <tr>
     <td> '<b>\U</b>xxxx' </td>
     <td> Char represented as Unicode</td>
-    <td> '<b>\U0041'</td>
+    <td> '\U0041'
   </tr>
   <tr>
     <td> isvalid(T, value) </td>
     <td> Returns true if the given value is valid for that type.</td>
     <td> isvalid(Char, '\U0041') </td>
   </tr>
+  <tr>
+    <td>  </td>
+    <td> </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>  </td>
+    <td> </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td> <b>ASCIIString </td>
+    <td> ASCII string type</td>
+    <td> <b>"</b>a = Hello<b>"<b/></td>
+  </tr>
+  <tr>
+    <td> <b>UTF8String, UTF16String, UTF32String</b> </td>
+    <td> UTF string types</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td> utf8(str), utf16(str), utf32(str) </td>
+    <td> Creates corresponding UTF string types</td>
+    <td></td>
+  <tr>
+    <td> str[init:step:end] </td>
+    <td> ASCII strings are indexable</td>
+    <td>a[5:-1:1]</td>
+  </tr>
+  <tr>
+    <td> <b>\", """</b> </td>
+    <td> Scape double quote within string</td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td> <b>&#36;</b>var </td>
+    <td> Displays the value of variable in string</td>
+    <td> "It costs &#36;prize eur"</td>
+  </tr>
+  <tr>
+    <td> <b>*</b> </td>
+    <td> Concatenates strings</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td> length(str) </td>
+    <td> Returns the number of characters in string</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td> str[<b>end</b>] </td>
+    <td> Symbol representing the character in last index position</td>
+    <td></td>
+  </tr>
+
+  </tr>
+
+
 </tbody>
 </table>
+
+
 
 
 </script>
