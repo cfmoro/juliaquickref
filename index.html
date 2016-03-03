@@ -1,1 +1,1208 @@
-Hello World
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  lang="en"  xml:lang="en"  xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta  http-equiv="content-type"  content="application/xhtml+xml; charset=iso-8859-1" />
+    <title>Julia 0.4 Quick Reference</title>
+    <meta  content="Julia 0.4 language Quick Reference, freely available in HTML (several styles) and PDF versions."
+       name="description" />
+    <meta  content="Julia, language, langage, 0.4, quick, quickref, fast, reference, guide"
+       name="keywords" />
+    <link  media="all"  title="Modern"  type="text/css"  rel="stylesheet"  href="css/modern.css" />
+    <link  media="all"  title="Modern Black &amp; White"  type="text/css"  rel="alternate stylesheet"
+       href="css/modernbw.css" />
+    <link  media="all"  title="Modern Colored"  type="text/css"  rel="stylesheet"
+       href="css/modern-colored.css" />
+    <link  media="all"  title="Classic"  type="text/css"  rel="alternate stylesheet"
+       href="css/classic.css" />
+    <link  media="all"  title="High contrast"  type="text/css"  rel="alternate stylesheet"
+       href="css/highcontrast.css" />
+    <link  media="all"  title="Printing"  type="text/css"  rel="alternate stylesheet"
+       href="css/printing.css" />
+    <script  src="css/styleswitcher.js"  type="text/javascript"></script>
+  </head>
+  <body>
+    <a  name="top"  id="top"></a>
+    <div  class="invisible"> Does the web look weird? Ugly? Perhaps that's
+      because your browser does not support the CSS standard. I recommend you
+      consider updating it. Without CSS, this and other pages are visible, but
+      nothing like they were meant to be. A very good free browser with support
+      for all standards is <a  href="http://www.mozilla.org/products/firefox/"
+         target="_top">Firefox</a>. For information about standards and why they
+      are important, please visit the <a  href="http://www.webstandards.org/act/campaign/buc/"
+         target="_top">browser upgrade campaign</a>. </div>
+    <table  cellpadding="0"  border="0"  summary="Layout"  class="main">
+      <tbody>
+        <tr>
+          <td  height="59"  class="logo"  colspan="20">
+            <h1>Julia 0.4 Quick Reference </h1>
+          </td>
+        </tr>
+        <tr>
+          <td  class="content">
+            <p><span  class="noprint"> Style chooser: <a  title="Modern style (default)"
+                   onclick="setActiveStyleSheet('Modern'); return false;"  href="#">Modern</a>,
+                <a  title="Modern B&amp;W style, good for printing"  onclick="setActiveStyleSheet('Modern Black &amp; White'); return false;"
+                   href="#">Modern B&amp;W</a>, <a  title="Modern variant, slightly Colored"
+                   onclick="setActiveStyleSheet('Modern Colored'); return false;"
+                   href="#">Modern Colored</a>, <a  title="Classic (original) layout"
+                   onclick="setActiveStyleSheet('Classic'); return false;"  href="#">Classic</a>,
+                <a  title="Black &amp; White"  onclick="setActiveStyleSheet('High contrast'); return false;"
+                   href="#">High contrast</a> or <a  title="Optimized for A4 paper"
+                   onclick="setActiveStyleSheet('Printing'); return false;"  href="#">Printing</a>
+              </span><br />
+              <span  style="font-size:x-small"  class="noprint"><span  style="color:red">[Hint</span>:
+                Use styles Modern B&amp;W or Printing to print. If you get
+                problems, try printing the <a  title="PDF versions"  href="http://rgruet.free.fr/#QuickRef">
+                  PDF versions</a> instead]</span> </p>
+            <!-- SUMMARY -->
+            <h2> <a  name="contents"  id="contents"></a> Contents </h2>
+            <ul>
+              <li> <a  href="#Frontstuff">Front matter</a> </li>
+              <li> <a  href="#Invocation"><b>Invocation</b></a> </li>
+              <li> <a  href="#REPL"><b>The REPL (interactive command line)</b></a> </li>
+              <li> <a  href="#LexEnt"><b>Lexical entities</b></a> : <a  href="#keywords">keywords</a>,
+                <a  href="#Identifiers">identifiers</a>, <a  href="#Strings">string
+                  literals</a>, <a  href="#BoolConstants"  class="since22">boolean
+                  constants</a>, <a  href="#Numbers">numbers</a>, <a  href="#Sequences">sequences</a>,
+                <a  href="#Dictionaries">dictionaries</a>, <a  href="#Sets">sets</a>,
+                <a  href="#operators">operators</a> </li>
+              <li> <a  href="#BasicTypes"><b>Basic types</b> and their
+                  operations:</a> <a  href="#None">None</a>, <a  href="#bool">bool</a>,
+                <a  href="#NumericTypes">Numeric types</a>, <a  href="#SequenceTypes">sequence
+                  types</a>, <a  href="#list">list</a>, <a  href="#dictionary">dictionary</a>,
+                <a  href="#stringMethods">string</a>, <a  href="#files">file</a>,
+                <a  href="#set"  class="since23">set</a>, <a  href="#namedtuples"
+                   class="since26">named tuples</a>, <a  href="#dates">date/time</a></li>
+              <li> <a  href="#AdvTypes"><b>Advanced types</b></a> </li>
+              <li> <a  href="#Statements"><b>Statements</b>: </a> <a  href="#assignmentOps">assignment</a>,
+                <a  href="#conditionalExpr"  class="since25">conditional
+                  expressions</a>, <a  href="#controlFlowSts">control flow</a>,
+                <a  href="#exceptionSts">exceptions</a>, <a  href="#NameSpaceSts">name
+                  space</a>, <a  href="#FunctionDef">function def</a>, <a  href="#ClassDef">class
+                  def</a></li>
+              <li> <a  href="#Iterators"  class="since22">Iterators</a>; <a  href="#Generators"
+                   class="since22">Generators</a>; <a  href="#Descriptors"  class="since22">Descriptors</a>;
+                <a  href="#Decorators"  class="since24">Decorators</a></li>
+              <li> <a  href="#BuiltIn"><b>Built-in Functions</b></a> </li>
+              <li> <a  href="#BuiltInExc"><b>Built-in Exceptions</b></a> </li>
+              <li> <a  href="#SpecialMethods">Standard <b>methods &amp;
+                    operators redefinition</b> in user-created Classes</a> </li>
+              <li> <a  href="#typeAttributes">Special <b>informative state
+                    attributes</b> for some types</a> </li>
+              <li> <a  href="#ImportantModules">Important <b>modules</b></a> :
+                <a  href="#sysModule">sys</a>, <a  href="#osModule">os</a>, <a
+                   href="#posixModule">posix</a>, <a  href="#posixpathModule">posixpath</a>,
+                <a  href="#shutil">shutil</a>, <a  href="#timeModule">time</a>,
+                <a  href="#stringModule">string</a>, <a  title="Regular Expressions"
+                   href="#reModule">re</a>, <a  href="#mathModule">math</a>,
+                <!-- <a href="#getoptModule">getopt</a> --> <a  href="#compressions">compressions</a>
+              </li>
+              <li> <a  href="#OtherModules"><b>List of modules</b> in the base
+                  distribution</a> </li>
+              <li> <a  href="#Workspace">Workspace exploration and idiom hints</a>
+              </li>
+              <li> <a  href="#Emacs">Python mode for Emacs</a> </li>
+            </ul>
+            <!-- FRONT STUFF -->
+            <h2> <a  name="Frontstuff"  id="Frontstuff"></a> Front matter </h2>
+            Version 0.4.0 (<a  href="https://raw.githubusercontent.com/JuliaLang/julia/0ff703b40afddf9b705bd6a06d3a59cb4c089ea5/NEWS.md">What's
+              new?</a>)<br />
+            Check updates at <a  href="http://rgruet.free.fr/#QuickRef"  target="_top">https://github.com/cfmoro/JuliaQuickRef</a>.
+            <br />
+            Please <b>report</b> errors, inaccuracies and suggestions to <a  href="javascript:location='mailto:\u0063\u0066\u006D\u006F\u0072\u006F\u0040\u0067\u006D\u0061\u0069\u006C\u002E\u0063\u006F\u006D';void 0">Carlos
+              F Moro</a> (cfmoro at gmail.com).<br />
+            <br />
+            <!-- LICENSE CREATIVE COMMONS -->
+            <a  href="http://creativecommons.org/licenses/by-nc-sa/2.0/fr/deed.en_US"
+               rel="license"  target="_blank">
+              <img  src="http://i.creativecommons.org/l/by-nc-sa/2.0/fr/88x31.png"
+                 style="border-width:0"  alt="Creative Commons License" />
+            </a> Creative Commons License.
+            <p>Last updated on
+              <!-- #BeginDate format:Am1 -->January 16, 2016<!-- #EndDate -->.
+            </p>
+            <dl>
+              <dt>Jan 16, 2016</dt>
+              <dd>created by <a  href="mailto:\u0063\u0066\u006D\u006F\u0072\u006F\u0040\u0067\u006D\u0061\u0069\u006C\u002E\u0063\u006F\u006D">Carlos F Moro</a>
+                for Julia 0.4 </dd>
+            </dl>
+            Color coding:
+            <dl>
+              <dd>
+                <!-- <span  class="since27">Features added in 2.7 since 2.6</span><br />
+                <span  class="since26">Features added in 2.6 since 2.5</span><br />
+                <span  class="since25">Features added in 2.5 since 2.4</span><br /> -->
+                <a  href="">A link</a> </dd>
+            </dl>
+            Originally based on:
+            <ul>
+              <li> <a  href="http://docs.julialang.org/en/release-0.4/"  target="_blank">Julia
+                  Documentation</a></li>
+            </ul>
+            <br />
+            <!-- LINKS -->
+            Useful links :
+            <blockquote>
+              <ul>
+                <li> <b>Julia's nest</b>: <a  href="http://julialang.org/"  target="_blank">http://julialang.org/</a>
+                </li>
+                <li> <b>Julia Documentation</b>: <a  href="http://docs.julialang.org/en/release-0.4/"
+                     target="_blank">http://docs.julialang.org/en/release-0.4/</a>
+                </li>
+                <li><b>Package index</b>: <a href="http://pkg.julialang.org/" target="_blank">http://pkg.julialang.org/</a>
+                </li>
+
+    <li> <b>Other learning resouces</b> <!-- Todo: complete -->:
+            <a  target="_blank"  href="https://www.youtube.com/user/JuliaLanguage">YouTube</a>
+    </li>
+    <li> <b>Getting started</b>: <a  href="http://docs.julialang.org/en/release-0.4/manual/getting-started/"
+ target="_blank">Julia documentation-Getting Started</a>,
+         <a  href="https://learnxinyminutes.com/docs/julia/"
+ target="_blank">
+         Learn Julia in a few minutes</a></li>
+    <li><b>Topics</b>:
+         <a  href="http://juliastats.github.io/"  target="_blank">JuliaStats - Statistics</a>,
+         <a  href="http://www.juliaopt.org/"  target="_blank">JuliaOpt - Optimization</a>,
+         <a  href="https://github.com/JuliaDB"  target="_blank">JuliaDB - Database drivers</a>,
+         <a  href="https://github.com/JuliaGPU"  target="_blank">JuliaGPU - GPU computing</a>,
+         <a  href="https://github.com/BioJulia"  target="_blank">BioJulia - Bioinformatics and Computational Biology</a>,<br>
+         <a  href="https://github.com/JuliaAstro"  target="_blank">Julia Astro - Astronomy</a>,
+         <a  href="https://github.com/JuliaQuant"  target="_blank">JuliaQuant - Finance</a>,
+         <a  target="_blank"  href="https://github.com/JuliaDSP">JuliaDSP - Digital signal processing</a>
+    </li>
+     <li> <b>Mailing Lists</b>:
+            <a  href="https://groups.google.com/forum/#!forum/julia-news"  target="_blank">julia-news</a> - important announcements,
+            <a  href="https://groups.google.com/forum/#!forum/julia-users"  target="_blank">julia-users</a> -  general discussion related to the use of Julia,
+            <a  href="https://groups.google.com/forum/#!forum/julia-stats"  target="_blank">julia-stats</a> - statistical programming with Julia
+     </li>
+     <li> <b>Blog</b>:
+            <a  href="http://www.juliabloggers.com/"  target="_blank">Julia Bloggers</a> </li>
+     <li> <b>Julia Development</b>:
+            <a  href="https://groups.google.com/forum/#!forum/julia-dev"  target="_blank">julia-dev</a> mailing list</li>
+     <li> <b>Books</b>:
+            <a href="https://en.wikibooks.org/wiki/Introducing_Julia" target="_blank">Introducing Julia</a> (Julia 0.4) by Wikibooks,
+            <a href="http://bogumilkaminski.pl/files/julia_express.pdf" target="_blank">The Julia Express</a> (Julia 0.4) by Bogumił Kamiński,
+            <a  target="_blank"  href="https://www.packtpub.com/application-development/getting-started-julia">Getting Started with Julia Programming</a> (Julia 0.3) by Ivo Balbaert (Packt Publishing),
+            <br/><a  href="https://www.packtpub.com/application-development/mastering-julia" target="_blank">Mastering Julia</a> (Julia 0.3) by Malcolm Sherrington (Packt Publishing)
+            and <a  target="_blank"  href="https://www.manning.com/books/learn-julia">Learn Julia</a> by Chris von Csefalvay (Manning, in Early Access).
+             <br>
+    <li> <b>Other</b>:
+         <a href="http://webchat.freenode.net/?channels=julia">#julia IRC channel</a>,
+         <a href="http://stackoverflow.com/questions/tagged/julia-lang">julia-lang</a> tag on StackOverflow (question and answer site for programmers).
+    </li>
+   </ul>
+</blockquote>
+
+<!-- TODO move to a help section -->
+<blockquote>
+  <b>Tip</b>: From within the Julia shell (read eval print loop - REPL), <strong>type</strong> <code>?(<i>name</i>)</code> to get help.
+  <code>
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?mean           # function
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?@printf        # macro
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?ASCIIString    # type
+    <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?WORD_SIZE      # variable
+  </code>
+</blockquote>
+
+<!-- INVOCATION OPTIONS -->
+<h2> <a  name="Invocation"  id="Invocation"></a> Invocation</h2>
+<blockquote>
+  <b>julia</b> [switches] -- [programfile] [args...]
+</blockquote>
+
+<table>
+  <caption> Invocation Ways and Options </caption>
+  <thead> <tr><th>Way or Option</th> <th>Effect</th></tr></thead>
+  <tbody>
+    <tr>
+      <td> </td>
+      <td> Starts an interactive session (also known as a read-eval-print loop or &quot;repl&quot;) </td>
+    </tr>
+    <tr>
+
+      <tr>
+        <td>  -v, --version</td>
+        <td>  Display version information</td>
+      </tr>
+
+      <tr>
+        <td>  -h, --help</td>
+        <td>  Print ways to run Julia code and provide options</td>
+      </tr>
+    <tr>
+      <td> --color={yes|no} </td>
+      <td> Enable or disable color text. </td>
+    </tr>
+      <tr>
+        <td> -O, --optimize</td>
+        <td> Run time-intensive code optimizations </td>
+      </tr>
+    <tr>
+      <td> -e '<i>expr</i>' arg1 arg2...</td>
+      <td> Evaluates expression non-interactively with given arguments </td>
+    </tr>
+    <tr>
+      <td> <i>script.jl</i> arg1 arg2... </td>
+      <td> Runs code in a file non-interactively with given arguments </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<ul>
+  <li><b>--</b> delimiter: can separate command-line args to the scriptfile from args to Julia
+    <blockquote><code>
+      julia --color=yes -O -- script.jl arg1 arg2..</code>
+    </blockquote>
+  </li>
+  <li><b>Graphical execution environments</b>
+        The <a  href="http://junolab.org/">Juno</a> integrated development environment (IDE)
+        and in the browser <a  href="https://www.juliabox.org/">JuliaBox.org</a> with IJulia notebooks.
+</ul>
+
+
+
+<!-- ENVIRONMENT VARIABLES -->
+<h2> <a  name="REPL"  id="REPL"></a>The REPL (interactive command line) </h2>
+<table>
+  <caption> ___ </caption>
+  <thead>
+    <tr>
+      <th> ___ </th>
+      <th> ___ </th>
+      <th>Examples</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> CTRL + D, quit()</td>
+      <td> Ends session</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> '<i>expr</i>;' + ENTER </td>
+      <td> Evaluates expression and shows result</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> '<i>expr</i>'<b>;</b> + ENTER </td>
+      <td> Evaluates expression without showint the result</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> <b>ans</b> </td>
+      <td> Symbol containing the result of last evaluated expression</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> CTRL + C </td>
+      <td> Interrupts current command </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> CTRL + L </td>
+      <td> Clear screen </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> workspace() </td>
+      <td> Resets session, variables are cleared </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> &uarr; </td>
+      <td> Previous command </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> &darr; </td>
+      <td> Next command </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> CTRL + R </td>
+      <td> Reverse search ((reverse-i-search)`':) through previous commands </td>
+      <td> (reverse-i-search)`print':</td>
+    </tr>
+    <tr>
+      <td> <b>?</b> </td>
+      <td> Enters help mode (help?&gt;) to access Julia's documentation for function names, types and macros</td>
+      <td> help?&gt; time</td>
+    </tr>
+    <tr>
+      <td> apropos(&quot;<i>str</i>&quot;) </td>
+      <td> Search through all documentation for string <i>str</i> </td>
+      <td> apropos("rand")</td>
+    </tr>
+    <tr>
+      <td> '<i>expr1</i>'<b> ;</b> '<i>expr2</i>' </td>
+      <td> Multiple expressions on same line </td>
+      <td> a = 3 ; c = 4</td>
+    </tr>
+    <tr>
+      <td> <i>str</i> + Tab key once</td>
+      <td> Autocompletion starting with <i>str</i> </td>
+      <td> Pkg.up + Tab key once</td>
+    </tr>
+    <tr>
+      <td> <i>str</i> + Tab key twice</td>
+      <td> List function names starting with <i>str</i> </td>
+      <td> print + Tab key twice</td>
+    </tr>
+	<tr>
+	  <td> <b>;</b> </td>
+	  <td> Enters system shell mode (shell&gt;)</td>
+    <td> shell&gt; ls
+	</tr>
+  <tr>
+    <td> include("<i>script.jl</i>")</td>
+    <td> Executes script</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td> versioninfo()</td>
+    <td> Prints detailed information about the version of Julia</td>
+    <td></td>
+  </tr>
+  <tr>
+    <td> print_with_color(color::Symbol, string) </td>
+    <td> Prints string in specified color</td>
+    <td> print_with_color(:blue, "Hello Julia")</td>
+  </tr>
+  <tr>
+    <td> display(x) </td>
+    <td> Dysplays x using the richest supported multimedia output</td>
+    <td> </td>
+  </tr>
+  </tbody>
+</table>
+
+
+
+
+<!-- CONSTANTS -->
+<h2> <a id="Constants" name="Constants"></a>Constants </h2>
+<table>
+  <caption> Constants </caption>
+  <thead>
+    <tr>
+      <th> Constant </th>
+      <th> Value </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> VERSION::VersionNumber </td>
+      <td> Julia version number</td>
+    </tr>
+    <tr>
+      <td> WORD_SIZE </td>
+      <td> Number of bits used to represent an integer</td>
+    </tr>
+    <tr>
+      <td> ARGS::Array{UTF8String,1} </td>
+      <td> Command line arguments passed to the script in execution
+          </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- PACKAGES -->
+<h2> <a id="Packages" name="Packages"></a>Packages </h2>
+<table>
+  <caption> Packages </caption>
+  <thead>
+    <tr>
+      <th> _____ </th>
+      <th> _____ </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> Pkg.init() </td>
+      <td> Creates package repository folder and clones METADATA from Git </td>
+    </tr>
+    <tr>
+      <td> Pkg.dir() </td>
+      <td> Path of the package directory</td>
+    </tr>
+    <tr>
+      <td> Pkg.status() </td>
+      <td> Lists installed packages with their versions</td>
+    </tr>
+    <tr>
+      <td> Pkg.installed() </td>
+      <td> Returns a dictionary in the form of installed packages =&gt; version number</td>
+    </tr>
+    <tr>
+      <td> Pkg.update() </td>
+      <td> Updates database of installed packages </td>
+    </tr>
+    <tr>
+      <td> Pkg.add(&quot;<i>PackageName</i>&quot;) </td>
+      <td> Add new package </td>
+    </tr>
+    <tr>
+      <td> using <i>PackageName</i> </td>
+      <td> Loads given package or module. Its exported names (functions, variables) are available for use.<br>
+           Names can be used by dot syntax, wether they are exported or not.  </td>
+    </tr>
+    <tr>
+      <td> Pkg.rm(&quot;<i>PackageName</i>&quot;) </td>
+      <td> Remove package </td>
+    </tr>
+    <tr>
+    <tr>
+        <td> Pkg.checkout(&quot;<i>PackageName</i>&quot;) </td>
+        <td> Use the master version of a package rather than one of its registered versions </td>
+    </tr>
+      <td> Pkg.free(&quot;<i>PackageName</i>&quot;) </td>
+      <td> Revert package to registered version, no longer checked out on a branch  </td>
+    </tr>
+    <tr>
+        <td> Pkg.clone(&quot;<i>url</i>&quot;) </td>
+        <td> Install an unregistered package from the git <i>url</i></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- INTERNALS -->
+<h2> <a id="Internals" name="Internals"></a>Internals </h2>
+<table>
+  <caption> Internals </caption>
+  <thead>
+    <tr>
+      <th> _____ </th>
+      <th> _____ </th>
+      <th> Examples </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> code_llvm(<i>f</i>, <i>types</i>) </td>
+      <td> Prints the LLVM bitcodes generated for running the method generated matching the given generic function ant type signature </td>
+      <td>code_llvm(rand,(Int64,))</td>
+    </tr>
+    <tr>
+      <td> code_native (<i>f</i>, <i>types</i>)</td>
+      <td> Prints the native assembly instructions generated for running the method matching the given generic function and type signature</td>
+      <td> code_native(rand,(Int64,))</td>
+    </tr>
+    <tr>
+      <td> gc()</td>
+      <td> Performs garbage collection (not recommended)</td>
+      <td> </td>
+      <tr>
+        <td> gc_enable(on::Bool)</td>
+        <td> Enables/disables garbage collection (extre caution)</td>
+        <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- SYNTAX -->
+<h2> <a id="Syntax" name="Syntax"></a>Syntax </h2>
+<table>
+  <caption> Syntax </caption>
+  <thead>
+    <tr>
+      <th> _____ </th>
+      <th> _____ </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> # <i>...</i></td>
+      <td> Single-line comment </td>
+    </tr>
+    <tr>
+      <td> #= <i>...</i> =# </td>
+      <td> Multi-line comment </td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> a	<b>=</b>	b	<b>=</b>	c	<b>=</b> 5</td>
+      <td> Chained assigment</td>
+    </tr>
+    <tr>
+      <td> 0	<b><</b>	x	<b><</b>	3 </td>
+      <td> Chained comparison </td>
+    </tr>
+    <tr>
+      <td> a<b>,</b>	b	=	b<b>,</b>	a </td>
+      <td> Assigment for different variables</td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- TYPES -->
+<h2> <a id="Types" name="Types"></a>Types </h2>
+<table>
+  <caption> Types </caption>
+  <thead>
+    <tr>
+      <th> _____ </th>
+      <th> _____ </th>
+      <th> Examples </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>  <b>Any</b> </td>
+      <td> Parent of all types</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> <b>None</b> </td>
+      <td> Has no values. No object can have this type, but it is a subtype of every type</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> <b>DataType</b> </td>
+      <td> The type of the types themselves</td>
+      <td> typeof(Float64) </td>
+    </tr>
+    <tr>
+      <td> &lt;: </td>
+      <td> Operator subclass of parent</td>
+      <td> Int64 &lt;: Signed</td>
+    </tr>
+
+    <tr>
+      <td> var::TypeName </td>
+      <td> Declares variable and type</td>
+      <td> name::ASCIIString</td>
+    </tr>
+    <tr>
+      <td> typeof(x) </td>
+      <td> Returns the concrete type of variable <i>x</i> or <br> the parent type of type <i>x</i> </td>
+      <td> typeof(3.0) <br>  typeof(Float64)</td>
+    </tr>
+    <tr>
+      <td> isa(x, T) </td>
+      <td> Tests wether <i>x</i> is of type <i>T</i>.</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td> convert(NewType, x) </td>
+      <td> Conversion of variable <i>x</i> to <i>NewType</i></td>
+      <td> convert(Float64, 3)</td>
+    </tr>
+    <tr>
+      <td> (expr)::TypeName </td>
+      <td> Type assertion for expression; raises error if <i>expr</i> is not of <i>TypeName</i></td>
+      <td> (6+8)::ASCIIString</td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- NUMBERS -->
+<h2> <a id="Numbers" name="Numbers"></a>Numbers and booleans</h2>
+<table>
+  <caption> Numbers </caption>
+  <thead>
+    <tr>
+      <th> _____ </th>
+      <th> _____ </th>
+      <th> Examples </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> <b>Int8, Int16, Int32, Int64, Int128</b> </td>
+      <td> Integer types</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> <b>BigInt</b>  </td>
+      <td> </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> <b> UInt8, UInt16, UInt32, UInt64, UInt128</b> </td>
+      <td> Unsigned integer types</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> typemax(T) </td>
+      <td> Returns highest value representable by numeric type <i>T</i></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> typemin(T) </td>
+      <td> Returns lowest value representable by numeric type <i>T</i></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> <b>0b, 0o, 0x</b> </td>
+      <td> Binary, octal, hexadecimal notation</td>
+      <td> x = 0b110111</td>
+    </tr>
+    <tr>
+      <td> op<b>=</b></td>
+      <td> Performs given binary arithmetic or bitwise operation and updates variable value </td>
+      <td> x <b>+=</b>	1</td>
+    </tr>
+    <tr>
+      <td> div(x, y) </td>
+      <td> Returns integer divisor</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> rem(x, y) <br> % </td>
+      <td> Remainder of integer divisor</td>
+      <td> <br> %(5, 2)</td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> <b>~, |, &amp;, $</b> </td>
+      <td> Bitwise logical operators not, or, and, xor</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> <b>&lt;&lt;, &gt;&gt;</b> </td>
+      <td> Bitwise arithmetic shifts left, right (preserve the sign bit)</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> <b>&gt;&gt;&gt;</b> </td>
+      <td> Bitwise logical shift right</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td> <b>Float16, Float32, Float64</b> </td>
+      <td> Floating point number types (1)<br> <i>Float32</i> single precision <br> <i>Float64</i> double precision</td>
+      <td> 3.14 <br> 3.5<b>f</b>2 <br> 5<b>e</b>-3</td>
+    </tr>
+    <tr>
+      <td> <b>BigFloat</b> </td>
+      <td> Type for arbitrary precision floating numbers</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> <b>Inf, -Inf</b> </td>
+      <td> Infinity values</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> <b>NaN</b> </td>
+      <td> Not-a-number value</td>
+      <td></td>
+      <tr>
+        <td>  </td>
+        <td> </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>  </td>
+        <td> </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td> isequal(x, y) </td>
+        <td> Similar to ==, except treats all floating-point NaN values as equal to each
+  other, and treats -0.0 as unequal to 0.0. </td>
+        <td></td>
+      </tr>
+      <tr>
+        <td> isnan(f) </td>
+        <td> Test whether a floating point number <i>f</i> is not a number (NaN)</td>
+        <td></td>
+      </tr>
+
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> bits(n) </td>
+      <td> Returns the bit representation of a number</td>
+      <td> bits(100)</td>
+    </tr>
+    <tr>
+      <td> abs(x) </td>
+      <td> Absolute value of x</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> round([T], n) </td>
+      <td> Rounds to the nearest integral value and returns it as type <i>T</i></td>
+      <td> round(Int64, 2.6)</td>
+    </tr>
+    <tr>
+      <td> sqrt(x) </td>
+      <td> Returns square root of <i>x</i></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> exp(x) </td>
+      <td> Computes e^x</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> log(x) </td>
+      <td> Computes the natural logarithm of </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> sin(x) </td>
+      <td> Computes sine of x, where x is in radians</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> cos(x) </td>
+      <td> Computes cosine of x, where x is in radians</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> tan(n) </td>
+      <td> Computes tangent of x, where x is in radians</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> erf(x) </td>
+      <td>  Computes the error function of x</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+      <td></td>
+    </tr>
+    <tr>
+      <tr>
+        <td>  <b>Complex{T}</b </td>
+        <td> Complex number (parametric) type </td>
+        <td> Complex{Float64}</td>
+      </tr>
+
+      <td> <b>im</b> </td>
+      <td> Constant representing the square root of -1</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> r <b>+</b> i<b>im</b> </td>
+      <td> A complex number</td>
+      <td> 5.6 + 8.2im</td>
+    </tr>
+    <tr>
+      <td> complex(r,i) </td>
+      <td> Converts real number <i>r</i> to complex</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> real(z) </td>
+      <td> Return the real part of the complex number z</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> imag(z) </td>
+      <td> Return the imaginary part of the complex number z</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>  <b>Rational{T}</b </td>
+      <td> Rational number (parametric) type</td>
+      <td> Rational{Int64}</td>
+    </tr>
+
+    <tr>
+      <td> <b>//</b> </td>
+      <td> Divides two integers (exact ratio) or rational numbers, giving a Rational result.</td>
+      <td> 5 <b>//</b> 2</td>
+    </tr>
+    <tr>
+      <td> num(x) </td>
+      <td> Numerator of the rational representation of <i>x</i></td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> den(x)</td>
+      <td> Denominator of the rational representation of x</td>
+      <td></td>
+    </tr>
+
+  </tbody>
+</table>
+
+<ul>
+  <li>(1) Avoid using equality when comparing floating point numbers.
+    <blockquote><code>
+      0.2 + 0.3 == 0.5
+      </code>
+    </blockquote>
+    Use >= or <= instead.
+  </li>
+</ul>
+
+<br>
+
+<table>
+  <caption> Booleans </caption>
+  <thead>
+    <tr>
+      <th> _____ </th>
+      <th> _____ </th>
+      <th> Examples </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> <b>Bool</b> </td>
+      <td> Logical type</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> <b>true, false</b>  </td>
+      <td> Logical constants</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> <b>&amp;&amp;, ||</b> </td>
+      <td> Short-circuit and, or operators</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> <b>&amp;, |</b> </td>
+      <td> Non short-circuit and, or operators</td>
+      <td></td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+<!-- ARRAYS -->
+<h2> <a id="Arrays" name="Arrays"></a>Arrays and matrices</h2>
+
+<ul>
+  <li>Both are of type <b>Array{T, dim}</b>.
+  <li>Indexable collection of homogeneous values.</li>
+  <li>Index starts at 1.</li>
+</ul>
+
+<table>
+  <caption> Arrays </caption>
+  <thead>
+    <tr>
+      <th> _____ </th>
+      <th> _____ </th>
+      <th> Examples </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> [x1, x2, x3, x4, x5] </td>
+      <td> Creates array by enumerating its values</td>
+      <td> [1, 5, 10, 15, 20]</td>
+    </tr>
+    <tr>
+      <td> [start:[step]:end] </td>
+      <td> Creates array with range and optional step</td>
+      <td> [1:5:20]</td>
+    </tr>
+    <tr>
+      <td> Array(T, n) </td>
+      <td> Creates an uninitialized array of type <i>T</i> and <i>n</i> elements</td>
+      <td> Array(Int64,10)</td>
+    </tr>
+    <tr>
+      <td> T[] </td>
+      <td> Creates an empty array of type <i>T</i></td>
+      <td> Float64[]</td>
+    </tr>
+    <tr>
+      <td> ones(T, n) </td>
+      <td> Creates an array of <i>n</i> ones of specified type (defaults to Float64) </td>
+      <td> ones(Int64, 5)</td>
+    </tr>
+    <tr>
+      <td> zeros(T, n) </td>
+      <td> Creates an array of <i>n</i> zeros of specified type (defaults to Float64) </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> rand(start:end, n) </td>
+      <td> Returns an array of <i>n</i> random elements from specified range</td>
+      <td> rand(1:10, 3)</td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> A[index] </td>
+      <td> Returns array element at <i>index</i></td>
+      <td> A[3]</td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+      <td></td>
+    </tr>
+
+    <tr>
+      <td> push!(collection, items...) </td>
+      <td> Inserts one or more <i>items</i> at the end of <i>collection</i></td>
+      <td> push!(A, 3, 4, 5)</td>
+    </tr>
+    <tr>
+      <td> pop!(collection) </td>
+      <td> Removes the last item in <i>collection</i> and returns it</td>
+      <td> pop!(A)</td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+
+
+<table>
+  <caption> Matrices </caption>
+  <thead>
+    <tr>
+      <th> _____ </th>
+      <th> _____ </th>
+      <th> Examples </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> A = [item1 item2 item3] </td>
+      <td> Creates a matrix of 1 row and 3 columns (1x3)</td>
+      <td> A = [10 11 12]</td>
+    </tr>
+    <tr>
+      <td> A = [item1 item2 item3 <b>;</b> item4 item5 item6] </td>
+      <td> Creates a matrix of 2 rows and 3 columns (2x3)</td>
+      <td> A = [10 11 12; 13 14 15]</td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> A[rowindex, colindex] </td>
+      <td> Returns matrix element at <i>rowindex</i>, <i>colindex</i></td>
+      <td> A[3,4]</td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> rehape(A, dims) </td>
+      <td> Create a matrix with the same data as <i>A</i>, but with different
+  dimensions</td>
+      <td> reshape(A,3,2)</td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> transpose(A) </td>
+      <td> Returns transposed matrix of <i>A</i> </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> <b>+, *, /</b> </td>
+      <td> Matrix sum, multiplication and division</td>
+      <td> A * B </td>
+    </tr>
+    <tr>
+      <tr>
+        <td> <b>.*, ./, .==</b> </td>
+        <td> Mmultiplication, division and equality on matrix elements</td>
+        <td> A ./ B </td>
+      </tr>
+
+    <tr>
+      <td> </td>
+      <td> </td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+      <td></td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+<!-- Char and strings -->
+<h2> <a id="CharStrings" name="CharStrings"></a>Char and strings</h2>
+
+
+<table>
+  <caption> Arrays </caption>
+  <thead>
+    <tr>
+      <th> _____ </th>
+      <th> _____ </th>
+      <th> Examples </th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td> <b>Char<b> </td>
+    <td> Represents a 32 bit character (UTF-8 symbol)</td>
+    <td> 'A'</td>
+  </tr>
+  <tr>
+    <td> Char(n) </td>
+    <td> Creates char from numeric value</td>
+    <td> Char(0o101)</td>
+  </tr>
+  <tr>
+    <td> '<b>\U</b>xxxx' </td>
+    <td> Char represented as Unicode</td>
+    <td> '<b>\U0041'</td>
+  </tr>
+  <tr>
+    <td> isvalid(T, value) </td>
+    <td> Returns true if the given value is valid for that type.</td>
+    <td> isvalid(Char, '\U0041') </td>
+  </tr>
+</tbody>
+</table>
+
+</script>
+</body></html>
+
