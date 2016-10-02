@@ -284,7 +284,7 @@
     </tr>
     <tr>
       <td> <b>?</b> </td>
-      <td> Enters help mode (help?&gt;) to access Julia's documentation for function names, types and macros</td>
+      <td> Enters help mode (help?&gt;) to access Julia's documentation for operators, function names, types and macros</td>
       <td> help?&gt; time</td>
     </tr>
     <tr>
@@ -501,8 +501,8 @@
       <td> Assigment for several variables</td>
     </tr>
     <tr>
-      <td>  </td>
-      <td> </td>
+      <td> 3*x^2-2*x+3 = 3x^2-2x+3 </td>
+      <td> The multiplication operator can be ommitted</td>
     </tr>
     <tr>
       <td>  </td>
@@ -661,16 +661,6 @@ Precedence of arithmetical operators:
       <td> x <b>+=</b>	1</td>
     </tr>
     <tr>
-      <td> div(x, y) </td>
-      <td> Returns integer divisor</td>
-      <td></td>
-    </tr>
-    <tr>
-      <td> rem(x, y) <br> % </td>
-      <td> Remainder of integer divisor</td>
-      <td> <br> %(5, 2)</td>
-    </tr>
-    <tr>
       <td>  </td>
       <td> </td>
       <td></td>
@@ -679,6 +669,11 @@ Precedence of arithmetical operators:
       <td>  </td>
       <td> </td>
       <td></td>
+    </tr>
+	<tr>
+      <td> <b>===</b> </td>
+      <td> <b>is</b> operator including both value and type</td>
+     <td> 'a'==="a" <i># false</i> </td>
     </tr>
     <tr>
       <td> <b>~, |, &amp;, $</b> </td>
@@ -764,8 +759,23 @@ Precedence of arithmetical operators:
       <td></td>
     </tr>
 	<tr>
+      <td> round(x) </td>
+      <td> Rounds to the nearest integer</td>
+      <td></td>
+    </tr>
+	<tr>
       <td> round(x, digits) </td>
       <td> Rounds to the specified number of digits after the decimal place (or before if negative)</td>
+      <td></td>
+    </tr>
+	<tr>
+      <td> div(x, y) </td>
+      <td> Returns integer divisor</td>
+      <td></td>
+    </tr>
+	<tr>
+      <td> rem(x, y), %(x, y) </td>
+      <td> Remainder from Euclidean division</td>
       <td></td>
     </tr>				
     <tr>
@@ -775,14 +785,9 @@ Precedence of arithmetical operators:
     </tr>
     <tr>
       <td> exp(x) </td>
-      <td> Computes e^x</td>
+      <td> Natural exponential function at x; e^x</td>
       <td></td>
     </tr>
-	<tr>
-      <td> rem(x, y), %(x, y) </td>
-      <td> Remainder from Euclidean division</td>
-      <td></td>
-    </tr>				
 	<tr>
       <td> floor(x) </td>
       <td> Returns the nearest integral value that is less than or equal to x</td>
@@ -796,6 +801,11 @@ Precedence of arithmetical operators:
     <tr>
       <td> log(x) </td>
       <td> Computes the natural logarithm of </td>
+      <td></td>
+    </tr>
+	<tr>
+      <td> log2(x) </td>
+      <td> Computes the logarithm to base 2 </td>
       <td></td>
     </tr>
 	<tr>
@@ -975,11 +985,11 @@ Precedence of arithmetical operators:
       <td> Short-circuit AND, OR operators</td>
       <td></td>
     </tr>
-    <tr>
+    <!--<tr>
       <td> <b>&amp;, |</b> </td>
       <td> Non short-circuit AND, OR operators</td>
       <td></td>
-    </tr>
+    </tr> -->
 	<tr>
       <td> <b>!</b> </td>
       <td> NOT operator</td>
@@ -995,6 +1005,7 @@ Precedence of arithmetical operators:
 
 <ul>
   <li>Both are of type <b>Array{T, dim}</b>.
+  <li>A matrix is a multidimensional array.
   <li>Indexable collection of homogeneous values.</li>
   <li>Index starts at 1.</li>
 </ul>
@@ -1020,14 +1031,14 @@ Precedence of arithmetical operators:
       <td> [1:5:20]</td>
     </tr>
     <tr>
-      <td> Array(T, n) </td>
-      <td> Creates an uninitialized array of type <i>T</i> and <i>n</i> elements (1)(2)</td>
-      <td> Array(Int64,10)</td>
-    </tr>
-    <tr>
       <td> T[] </td>
       <td> Creates an empty array of type <i>T</i></td>
       <td> Float64[]</td>
+    </tr>	
+    <tr>
+      <td> Array(T, n) </td>
+      <td> Creates an uninitialized array of type <i>T</i> and <i>n</i> elements (1)(2)</td>
+      <td> Array(Int64,10)</td>
     </tr>
     <tr>
       <td> ones(T, n) </td>
@@ -1134,6 +1145,11 @@ Precedence of arithmetical operators:
       <td> Creates a matrix of 2 rows and 3 columns (2x3)</td>
       <td> A = [10 11 12; 13 14 15]</td>
     </tr>
+	<tr>
+      <td> Array(T, dims...) </td>
+      <td> Creates an uninitialized matrix of type <i>T</i> and <i>dims</i> dimensions</td>
+      <td> Array(Int64, 11, 12) <i># 11x12 Array{Int64, 2} </td>
+    </tr>				
     <tr>
       <td>  </td>
       <td> </td>
@@ -1146,9 +1162,19 @@ Precedence of arithmetical operators:
     </tr>
     <tr>
       <td> A[rowindex, colindex] </td>
-      <td> Returns matrix element at <i>rowindex</i>, <i>colindex</i></td>
+      <td> Returns matrix element at row <i>rowindex</i>, column <i>colindex</i></td>
       <td> A[3,4]</td>
     </tr>
+    <tr>
+      <td> A[:, colindex] </td>
+      <td> Returns matrix elements for all rows, at column <i>colindex</i></td>
+      <td> A[:,2]</td>
+    </tr>	
+    <tr>
+      <td> A[start:end, colindex] </td>
+      <td> Returns matrix elements from row <i>start</i> to <i>end</i>, at column <i>colindex</i></td>
+      <td> A[:,2]</td>
+    </tr>		
     <tr>
       <td>  </td>
       <td> </td>
@@ -1334,12 +1360,27 @@ Precedence of arithmetical operators:
     <td> myfunc(firstvar) = 20*firstvar</td>
   </tr>
   <tr>
-    <td>  </td>
+    <td> <b>function</b> </td>
     <td> Multi-line function definition</td>
     <td> function nextfunc(a, b, c)  <br>
 			   &nbsp;&nbsp;&nbsp;a*b + c                    <br>
 			end</td>
+  </tr>
+  <tr>
+    <td>   </td>
+    <td> Typed function argument</td>
+    <td> addone(x::Int64) = x+1</td>
   </tr>  
+    <tr>
+    <td>   </td>
+    <td> Default argument values</td>
+    <td> function coordinates(x, y=0, z=0)</td>
+  </tr>  
+    <tr>
+    <td> <b>return</b> </td>
+    <td> Stops function execution and returns value of expression</td>
+    <td> return 2x</td>
+  </tr>
   </tbody>
 </table>
 
@@ -1347,4 +1388,6 @@ Precedence of arithmetical operators:
 
 </script>
 </body></html>
+
+<!-- TODO: non-short cut logical operators & | -->
 
