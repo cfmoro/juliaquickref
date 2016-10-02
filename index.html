@@ -2,10 +2,10 @@
 <html  lang="en"  xml:lang="en"  xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta  http-equiv="content-type"  content="application/xhtml+xml; charset=iso-8859-1" />
-    <title>Julia 0.4 Quick Reference</title>
-    <meta  content="Julia 0.4 language Quick Reference, freely available in HTML (several styles) and PDF versions."
+    <title>Julia 0.5 Quick Reference</title>
+    <meta  content="Julia 0.5 language Quick Reference, freely available in HTML (several styles) and PDF versions."
        name="description" />
-    <meta  content="Julia, language, langage, 0.4, quick, quickref, fast, reference, guide"
+    <meta  content="Julia, language, langage, 0.5, quick, quickref, fast, reference, guide"
        name="keywords" />
     <link  media="all"  title="Modern"  type="text/css"  rel="stylesheet"  href="css/modern.css" />
     <link  media="all"  title="Modern Black &amp; White"  type="text/css"  rel="alternate stylesheet"
@@ -34,7 +34,7 @@
       <tbody>
         <tr>
           <td  height="59"  class="logo"  colspan="20">
-            <h1>Julia 0.4 Quick Reference </h1>
+            <h1>Julia 0.5 Quick Reference </h1>
           </td>
         </tr>
         <tr>
@@ -60,10 +60,19 @@
               <li> <a  href="#Frontstuff">Front matter</a> </li>
               <li> <a  href="#Invocation"><b>Invocation</b></a> </li>
               <li> <a  href="#REPL"><b>The REPL (interactive command line)</b></a> </li>
+			  <li> <a  href="#Constants"><b>Constants</b></a> </li>
+			  <li> <a  href="#Packages"><b>Packages</b></a> </li>
+			  <li> <a  href="#Internals"><b>Internals</b></a> </li>
+			  <li> <a  href="#Syntax"><b>Syntax</b></a> </li>
+			  <li> <a  href="#Types"><b>Types</b></a> </li>
+			  <li> <a  href="#Numbers_and_booleans"><b>Numbers and booleans</b></a> </li>
+			  <li> <a  href="#Arrays_and_matrices"><b>Arrays and matrices</b></a> </li>
+			  <li> <a  href="#Char_and_strings"><b>Char and strings</b></a> </li>
+			  <li> <a  href="#Functions"><b>Functions</b></a> </li>
             </ul>
             <!-- FRONT STUFF -->
             <h2> <a  name="Frontstuff"  id="Frontstuff"></a> Front matter </h2>
-            Version 0.4.0 (<a  href="https://raw.githubusercontent.com/JuliaLang/julia/0ff703b40afddf9b705bd6a06d3a59cb4c089ea5/NEWS.md">What's
+            Version 0.5.0 (<a  href="https://github.com/JuliaLang/julia/blob/master/NEWS.md">What's
               new?</a>)<br />
             Based on excellent Richard Gruet's <a href="http://rgruet.free.fr/">Python Quick Reference</a></br>
             Check updates at <a  href="https://github.com/cfmoro/juliaquickref"  target="_top">https://github.com/cfmoro/juliaquickref</a>.
@@ -78,12 +87,12 @@
                  style="border-width:0"  alt="Creative Commons License" />
             </a> Creative Commons License.
             <p>Last updated on
-              <!-- #BeginDate format:Am1 -->January 16, 2016<!-- #EndDate -->.
+              <!-- #BeginDate format:Am1 -->October 2, 2016<!-- #EndDate -->.
             </p>
             <dl>
               <dt>Jan 16, 2016</dt>
               <dd>created by <a  href="mailto:\u0063\u0066\u006D\u006F\u0072\u006F\u0040\u0067\u006D\u0061\u0069\u006C\u002E\u0063\u006F\u006D">Carlos F Moro</a>
-                for Julia 0.4 </dd>
+                for Julia 0.5 </dd>
             </dl>
             Color coding:
             <dl>
@@ -95,7 +104,7 @@
             </dl>
             Originally based on:
             <ul>
-              <li> <a  href="http://docs.julialang.org/en/release-0.4/"  target="_blank">Julia
+              <li> <a  href="http://docs.julialang.org/en/release-0.5/"  target="_blank">Julia
                   Documentation</a></li>
             </ul>
             <br />
@@ -105,8 +114,8 @@
               <ul>
                 <li> <b>Julia's nest</b>: <a  href="http://julialang.org/"  target="_blank">http://julialang.org/</a>
                 </li>
-                <li> <b>Julia Documentation</b>: <a  href="http://docs.julialang.org/en/release-0.4/"
-                     target="_blank">http://docs.julialang.org/en/release-0.4/</a>
+                <li> <b>Julia Documentation</b>: <a  href="http://docs.julialang.org/en/release-0.5/"
+                     target="_blank">http://docs.julialang.org/en/release-0.5/</a>
                 </li>
                 <li><b>Package index</b>: <a href="http://pkg.julialang.org/" target="_blank">http://pkg.julialang.org/</a>
                 </li>
@@ -114,7 +123,7 @@
     <li> <b>Other learning resouces</b> <!-- Todo: complete -->:
             <a  target="_blank"  href="https://www.youtube.com/user/JuliaLanguage">YouTube</a>
     </li>
-    <li> <b>Getting started</b>: <a  href="http://docs.julialang.org/en/release-0.4/manual/getting-started/"
+    <li> <b>Getting started</b>: <a  href="http://docs.julialang.org/en/release-0.5/manual/getting-started/"
  target="_blank">Julia documentation-Getting Started</a>,
          <a  href="https://learnxinyminutes.com/docs/julia/"
  target="_blank">
@@ -152,16 +161,6 @@
    </ul>
 </blockquote>
 
-<!-- TODO move to a help section -->
-<blockquote>
-  <b>Tip</b>: From within the Julia shell (read eval print loop - REPL), <strong>type</strong> <code>?(<i>name</i>)</code> to get help.
-  <code>
-    <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?mean           # function
-    <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?@printf        # macro
-    <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?ASCIIString    # type
-    <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;?WORD_SIZE      # variable
-  </code>
-</blockquote>
 
 <!-- INVOCATION OPTIONS -->
 <h2> <a  name="Invocation"  id="Invocation"></a> Invocation</h2>
@@ -499,7 +498,7 @@
     </tr>
     <tr>
       <td> a<b>,</b>	b	=	b<b>,</b>	a </td>
-      <td> Assigment for different variables</td>
+      <td> Assigment for several variables</td>
     </tr>
     <tr>
       <td>  </td>
@@ -515,6 +514,13 @@
 
 <!-- TYPES -->
 <h2> <a id="Types" name="Types"></a>Types </h2>
+The actual type of a value in Julia is always a <i>concrete type</i>.
+<br><i>Abstract types</i> are useful: 
+<ul>
+	<li> As guide for type conversion operations</li>
+	<li> For funtions that by operating on abstracy types work for all the types underneath.
+</ul>
+	
 <table>
   <caption> Types </caption>
   <thead>
@@ -601,7 +607,14 @@
 
 
 <!-- NUMBERS -->
-<h2> <a id="Numbers" name="Numbers"></a>Numbers and booleans</h2>
+<h2> <a id="Numbers_and_booleans" name="Numbers_and_booleans"></a>Numbers and booleans</h2>
+Precedence of arithmetical operators: 
+<ol>
+  <li>Insides of parentheses <b>()</b>.</li>
+  <li>Exponentiation <b>^</b>.</li>
+  <li>Multiplication and division, from left to right <b>* /</b>.</li>
+  <li>Addition and subtraction, from left to right <b>+ -</b>.</li>
+</ol>
 <table>
   <caption> Numbers </caption>
   <thead>
@@ -746,20 +759,15 @@
       <td></td>
     </tr>
     <tr>
-      <td> bits(n) </td>
-      <td> Returns the bit representation of a number</td>
-      <td> bits(100)</td>
-    </tr>
-    <tr>
       <td> abs(x) </td>
       <td> Absolute value of x</td>
       <td></td>
     </tr>
-    <tr>
-      <td> round([T], n) </td>
-      <td> Rounds to the nearest integral value and returns it as type <i>T</i></td>
-      <td> round(Int64, 2.6)</td>
-    </tr>
+	<tr>
+      <td> round(x, digits) </td>
+      <td> Rounds to the specified number of digits after the decimal place (or before if negative)</td>
+      <td></td>
+    </tr>				
     <tr>
       <td> sqrt(x) </td>
       <td> Returns square root of <i>x</i></td>
@@ -770,31 +778,71 @@
       <td> Computes e^x</td>
       <td></td>
     </tr>
+	<tr>
+      <td> rem(x, y), %(x, y) </td>
+      <td> Remainder from Euclidean division</td>
+      <td></td>
+    </tr>				
+	<tr>
+      <td> floor(x) </td>
+      <td> Returns the nearest integral value that is less than or equal to x</td>
+      <td></td>
+    </tr>	
+	<tr>
+      <td> ceil(x) </td>
+      <td> Returns the nearest integral value that is greater than or equal to x</td>
+      <td></td>
+    </tr>			
     <tr>
       <td> log(x) </td>
       <td> Computes the natural logarithm of </td>
       <td></td>
     </tr>
-    <tr>
-      <td> sin(x) </td>
-      <td> Computes sine of x, where x is in radians</td>
+	<tr>
+      <td> log10(x) </td>
+      <td> Computes the logarithm to base 10 </td>
       <td></td>
     </tr>
     <tr>
       <td> cos(x) </td>
       <td> Computes cosine of x, where x is in radians</td>
       <td></td>
+    </tr>	
+    <tr>
+      <td> sin(x) </td>
+      <td> Computes sine of x, where x is in radians</td>
+      <td></td>
     </tr>
     <tr>
-      <td> tan(n) </td>
+      <td> tan(x) </td>
       <td> Computes tangent of x, where x is in radians</td>
       <td></td>
     </tr>
+    <tr>
+      <td> acos(x) </td>
+      <td> Computes the inverse cosine of x, the output is in radians</td>
+      <td></td>
+    </tr>	  
+    <tr>
+      <td> asin(x) </td>
+      <td> Computes the inverse sine of x, the output is in radians</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td> atan(x) </td>
+      <td> Compute the inverse tangent of x, the output is in radians</td>
+      <td></td>
+    </tr>	
     <tr>
       <td> erf(x) </td>
       <td>  Computes the error function of x</td>
       <td></td>
     </tr>
+    <tr>
+      <td> bits(n) </td>
+      <td> Returns the bit representation of a number</td>
+      <td> bits(100)</td>
+    </tr>	
     <tr>
       <td>  </td>
       <td> </td>
@@ -883,6 +931,15 @@
 
 <br>
 
+<br>
+<p>Operator precedence for logical expressions: 
+<ul>
+	<li>Arithmetic operators have higher precedence than logical operators</li>
+	<ul>
+		<li>3-4 > 1 && 2 + 2 == 4 || 10 - 5 > 2 is read as ( 3-4 > 1 ) && ( 2+2 == 4 ) || ( 10-5 > 2 )</li>
+	</ul>	
+</ul>
+
 <table>
   <caption> Booleans </caption>
   <thead>
@@ -915,13 +972,18 @@
     </tr>
     <tr>
       <td> <b>&amp;&amp;, ||</b> </td>
-      <td> Short-circuit and, or operators</td>
+      <td> Short-circuit AND, OR operators</td>
       <td></td>
     </tr>
     <tr>
       <td> <b>&amp;, |</b> </td>
-      <td> Non short-circuit and, or operators</td>
+      <td> Non short-circuit AND, OR operators</td>
       <td></td>
+    </tr>
+	<tr>
+      <td> <b>!</b> </td>
+      <td> NOT operator</td>
+      <td> !true</td>
     </tr>
 
   </tbody>
@@ -929,7 +991,7 @@
 
 
 <!-- ARRAYS -->
-<h2> <a id="Arrays" name="Arrays"></a>Arrays and matrices</h2>
+<h2> <a id="Arrays_and_matrices" name="Arrays_and_matrices"></a>Arrays and matrices</h2>
 
 <ul>
   <li>Both are of type <b>Array{T, dim}</b>.
@@ -959,7 +1021,7 @@
     </tr>
     <tr>
       <td> Array(T, n) </td>
-      <td> Creates an uninitialized array of type <i>T</i> and <i>n</i> elements</td>
+      <td> Creates an uninitialized array of type <i>T</i> and <i>n</i> elements (1)(2)</td>
       <td> Array(Int64,10)</td>
     </tr>
     <tr>
@@ -1031,6 +1093,26 @@
   </tbody>
 </table>
 
+<ul>
+  <li>(1) Sometimes Julia fills the array with arbitrary values, which is a reminder that you've created an uninitialized array but haven't filled it with any sensible information.
+    <blockquote><code>
+      julia> a = Array(Int64, 3)<br>  
+	  3-element Array{Int64,1}:<br>  
+		140361946852528<br>  
+		140361946852624<br>  
+		140361949041936
+      </code>
+    </blockquote>
+  </li>
+  <li>(2) When creating an array of an abstract type, the elements of remain undefined, waiting to get their values
+      <blockquote><code>
+      julia> abstypevariable = Array(Integer, 2,3)<br>  
+	  2x3 Array{Integer,2}:<br>  
+		#undef  #undef  #undef<br>  
+		#undef  #undef  #undef<br>  
+      </code>
+  </li>
+</ul>
 
 <table>
   <caption> Matrices </caption>
@@ -1126,7 +1208,7 @@
 
 
 <!-- Char and strings -->
-<h2> <a id="CharStrings" name="CharStrings"></a>Char and strings</h2>
+<h2> <a id="Char_and_strings" name="Char_and_strings"></a>Char and strings</h2>
 
 
 <table>
@@ -1189,7 +1271,12 @@
     <td>a[5:-1:1]</td>
   </tr>
   <tr>
-    <td> <b>\", """</b> </td>
+    <td> <b>\</b>", <b>\</b>$ </td>
+    <td> Scape special character within string</td>
+    <td> </td>
+  </tr>
+  <tr>
+    <td> <b>"""</b> </td>
     <td> Scape double quote within string</td>
     <td> </td>
   </tr>
@@ -1203,6 +1290,11 @@
     <td> Concatenates strings</td>
     <td></td>
   </tr>
+    <tr>
+    <td> <b>^</b> </td>
+    <td> Repeats string</td>
+    <td>"Hello "^3</td>
+  </tr>
   <tr>
     <td> length(str) </td>
     <td> Returns the number of characters in string</td>
@@ -1215,11 +1307,41 @@
   </tr>
 
   </tr>
-
-
 </tbody>
 </table>
 
+<!-- Functions -->
+<h2> <a id="Functions" name="Functions"></a>Functions</h2>
+
+<table>
+  <caption> Functions </caption>
+  <thead>
+    <tr>
+      <th> _____ </th>
+      <th> _____ </th>
+      <th> Examples </th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td> methods(f) </td>
+    <td> Returns the method table (permissible type signatures) for function f</td>
+    <td> methods(atan)</td>
+  </tr>
+  <tr>
+    <td>  </td>
+    <td> One-line function definition</td>
+    <td> myfunc(firstvar) = 20*firstvar</td>
+  </tr>
+  <tr>
+    <td>  </td>
+    <td> Multi-line function definition</td>
+    <td> function nextfunc(a, b, c)  <br>
+			   &nbsp;&nbsp;&nbsp;a*b + c                    <br>
+			end</td>
+  </tr>  
+  </tbody>
+</table>
 
 
 
