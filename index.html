@@ -2,8 +2,8 @@
 <html  lang="en"  xml:lang="en"  xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta  http-equiv="content-type"  content="application/xhtml+xml; charset=iso-8859-1" />
-    <title>Julia 0.5 Quick Reference</title>
-    <meta  content="Julia 0.5 language Quick Reference, freely available in HTML (several styles) and PDF versions."
+    <title>Julia 1.0 Quick Reference</title>
+    <meta  content="Julia 1.0 language Quick Reference, freely available in HTML (several styles) and PDF versions."
        name="description" />
     <meta  content="Julia, language, langage, 0.5, quick, quickref, fast, reference, guide"
        name="keywords" />
@@ -34,7 +34,7 @@
       <tbody>
         <tr>
           <td  height="59"  class="logo"  colspan="20">
-            <h1>Julia 0.5 Quick Reference </h1>
+            <h1>Julia 1.0 Quick Reference </h1>
           </td>
         </tr>
         <tr>
@@ -515,12 +515,12 @@
 <!-- TYPES -->
 <h2> <a id="Types" name="Types"></a>Types </h2>
 The actual type of a value in Julia is always a <i>concrete type</i>.
-<br><i>Abstract types</i> are useful: 
+<br><i>Abstract types</i> are useful:
 <ul>
 	<li> As guide for type conversion operations</li>
 	<li> For funtions that by operating on abstracy types work for all the types underneath.
 </ul>
-	
+
 <table>
   <caption> Types </caption>
   <thead>
@@ -608,7 +608,7 @@ The actual type of a value in Julia is always a <i>concrete type</i>.
 
 <!-- NUMBERS -->
 <h2> <a id="Numbers_and_booleans" name="Numbers_and_booleans"></a>Numbers and booleans</h2>
-Precedence of arithmetical operators: 
+Precedence of arithmetical operators:
 <ol>
   <li>Insides of parentheses <b>()</b>.</li>
   <li>Exponentiation <b>^</b>.</li>
@@ -674,7 +674,7 @@ Precedence of arithmetical operators:
       <td> ^ </td>
       <td> Exponentiation operator</td>
       <td> 2 ^ 3 <i># 8</i></td>
-    </tr>	
+    </tr>
 	<tr>
       <td> \ </td>
       <td> Inverse division</td>
@@ -787,7 +787,7 @@ Precedence of arithmetical operators:
       <td> rem(x, y), %(x, y) </td>
       <td> Remainder from Euclidean division</td>
       <td></td>
-    </tr>				
+    </tr>
     <tr>
       <td> sqrt(x) </td>
       <td> Returns square root of <i>x</i></td>
@@ -802,12 +802,12 @@ Precedence of arithmetical operators:
       <td> floor(x) </td>
       <td> Returns the nearest integral value that is less than or equal to x</td>
       <td></td>
-    </tr>	
+    </tr>
 	<tr>
       <td> ceil(x) </td>
       <td> Returns the nearest integral value that is greater than or equal to x</td>
       <td></td>
-    </tr>			
+    </tr>
     <tr>
       <td> log(x) </td>
       <td> Computes the natural logarithm of </td>
@@ -827,7 +827,7 @@ Precedence of arithmetical operators:
       <td> cos(x) </td>
       <td> Computes cosine of x, where x is in radians</td>
       <td></td>
-    </tr>	
+    </tr>
     <tr>
       <td> sin(x) </td>
       <td> Computes sine of x, where x is in radians</td>
@@ -842,7 +842,7 @@ Precedence of arithmetical operators:
       <td> acos(x) </td>
       <td> Computes the inverse cosine of x, the output is in radians</td>
       <td></td>
-    </tr>	  
+    </tr>
     <tr>
       <td> asin(x) </td>
       <td> Computes the inverse sine of x, the output is in radians</td>
@@ -852,7 +852,7 @@ Precedence of arithmetical operators:
       <td> atan(x) </td>
       <td> Compute the inverse tangent of x, the output is in radians</td>
       <td></td>
-    </tr>	
+    </tr>
     <tr>
       <td> erf(x) </td>
       <td>  Computes the error function of x</td>
@@ -862,7 +862,7 @@ Precedence of arithmetical operators:
       <td> bits(n) </td>
       <td> Returns the bit representation of a number</td>
       <td> bits(100)</td>
-    </tr>	
+    </tr>
     <tr>
       <td>  </td>
       <td> </td>
@@ -952,12 +952,12 @@ Precedence of arithmetical operators:
 <br>
 
 <br>
-<p>Operator precedence for logical expressions: 
+<p>Operator precedence for logical expressions:
 <ul>
 	<li>Arithmetic operators have higher precedence than logical operators</li>
 	<ul>
 		<li>3-4 > 1 && 2 + 2 == 4 || 10 - 5 > 2 is read as ( 3-4 > 1 ) && ( 2+2 == 4 ) || ( 10-5 > 2 )</li>
-	</ul>	
+	</ul>
 </ul>
 
 <table>
@@ -1044,7 +1044,7 @@ Precedence of arithmetical operators:
       <td> T[] </td>
       <td> Creates an empty array of type <i>T</i></td>
       <td> Float64[]</td>
-    </tr>	
+    </tr>
     <tr>
       <td> Array(T, n) </td>
       <td> Creates an uninitialized array of type <i>T</i> and <i>n</i> elements (1)(2)</td>
@@ -1117,20 +1117,20 @@ Precedence of arithmetical operators:
 <ul>
   <li>(1) Sometimes Julia fills the array with arbitrary values, which is a reminder that you've created an uninitialized array but haven't filled it with any sensible information.
     <blockquote><code>
-      julia> a = Array(Int64, 3)<br>  
-	  3-element Array{Int64,1}:<br>  
-		140361946852528<br>  
-		140361946852624<br>  
+      julia> a = Array(Int64, 3)<br>
+	  3-element Array{Int64,1}:<br>
+		140361946852528<br>
+		140361946852624<br>
 		140361949041936
       </code>
     </blockquote>
   </li>
   <li>(2) When creating an array of an abstract type, the elements of remain undefined, waiting to get their values
       <blockquote><code>
-      julia> abstypevariable = Array(Integer, 2,3)<br>  
-	  2x3 Array{Integer,2}:<br>  
-		#undef  #undef  #undef<br>  
-		#undef  #undef  #undef<br>  
+      julia> abstypevariable = Array(Integer, 2,3)<br>
+	  2x3 Array{Integer,2}:<br>
+		#undef  #undef  #undef<br>
+		#undef  #undef  #undef<br>
       </code>
   </li>
 </ul>
@@ -1159,7 +1159,7 @@ Precedence of arithmetical operators:
       <td> Array(T, dims...) </td>
       <td> Creates an uninitialized matrix of type <i>T</i> and <i>dims</i> dimensions</td>
       <td> Array(Int64, 11, 12) <i># 11x12 Array{Int64, 2} </td>
-    </tr>				
+    </tr>
     <tr>
       <td>  </td>
       <td> </td>
@@ -1179,12 +1179,12 @@ Precedence of arithmetical operators:
       <td> A[:, colindex] </td>
       <td> Returns matrix elements for all rows, at column <i>colindex</i></td>
       <td> A[:,2]</td>
-    </tr>	
+    </tr>
     <tr>
       <td> A[start:end, colindex] </td>
       <td> Returns matrix elements from row <i>start</i> to <i>end</i>, at column <i>colindex</i></td>
       <td> A[:,2]</td>
-    </tr>		
+    </tr>
     <tr>
       <td>  </td>
       <td> </td>
@@ -1380,12 +1380,12 @@ Precedence of arithmetical operators:
     <td>   </td>
     <td> Typed function argument</td>
     <td> addone(x::Int64) = x+1</td>
-  </tr>  
+  </tr>
     <tr>
     <td>   </td>
     <td> Default argument values</td>
     <td> function coordinates(x, y=0, z=0)</td>
-  </tr>  
+  </tr>
     <tr>
     <td> <b>return</b> </td>
     <td> Stops function execution and returns value of expression</td>
@@ -1400,4 +1400,3 @@ Precedence of arithmetical operators:
 </body></html>
 
 <!-- TODO: non-short cut logical operators & | -->
-
