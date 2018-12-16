@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html  lang="en"  xml:lang="en"  xmlns="http://www.w3.org/1999/xhtml">
   <head>
-    <meta  http-equiv="content-type"  content="application/xhtml+xml; charset=iso-8859-1" />
+    <meta  http-equiv="content-type"  content="application/xhtml+xml; charset=UTF-8" />
     <title>Julia 1.0 Quick Reference</title>
     <meta  content="Julia 1.0 language Quick Reference, freely available in HTML (several styles) and PDF versions."
        name="description" />
@@ -72,13 +72,12 @@
             </ul>
             <!-- FRONT STUFF -->
             <h2> <a  name="Frontstuff"  id="Frontstuff"></a> Front matter </h2>
-            Version 0.5.0 (<a  href="https://github.com/JuliaLang/julia/blob/master/NEWS.md">What's
-              new?</a>)<br />
+            Version 1.0 (<a  href="https://julialang.org/blog/2018/08/one-point-zero">Release blog post</a>)<br />
             Based on excellent Richard Gruet's <a href="http://rgruet.free.fr/">Python Quick Reference</a></br>
             Check updates at <a  href="https://github.com/cfmoro/juliaquickref"  target="_top">https://github.com/cfmoro/juliaquickref</a>.
             <br />
             Please <b>report</b> errors, inaccuracies and suggestions to <a  href="javascript:location='mailto:\u0063\u0066\u006D\u006F\u0072\u006F\u0040\u0067\u006D\u0061\u0069\u006C\u002E\u0063\u006F\u006D';void 0">Carlos
-              F Moro</a> (cfmoro at gmail.com).<br />
+              Fern&aacute;ndez Moro</a> (cfmoro at gmail.com).<br />
             <br />
             <!-- LICENSE CREATIVE COMMONS -->
             <a  href="http://creativecommons.org/licenses/by-nc-sa/2.0/fr/deed.en_US"
@@ -87,24 +86,16 @@
                  style="border-width:0"  alt="Creative Commons License" />
             </a> Creative Commons License.
             <p>Last updated on
-              <!-- #BeginDate format:Am1 -->October 2, 2016<!-- #EndDate -->.
+              <!-- #BeginDate format:Am1 -->December 16, 2016<!-- #EndDate -->.
             </p>
             <dl>
               <dt>Jan 16, 2016</dt>
-              <dd>created by <a  href="mailto:\u0063\u0066\u006D\u006F\u0072\u006F\u0040\u0067\u006D\u0061\u0069\u006C\u002E\u0063\u006F\u006D">Carlos F Moro</a>
-                for Julia 0.5 </dd>
-            </dl>
-            Color coding:
-            <dl>
-              <dd>
-                <!-- <span  class="since27">Features added in 2.7 since 2.6</span><br />
-                <span  class="since26">Features added in 2.6 since 2.5</span><br />
-                <span  class="since25">Features added in 2.5 since 2.4</span><br /> -->
-                <a  href="">A link</a> </dd>
+              <dd>created by <a  href="mailto:\u0063\u0066\u006D\u006F\u0072\u006F\u0040\u0067\u006D\u0061\u0069\u006C\u002E\u0063\u006F\u006D">Carlos Fern&aacute;ndez Moro</a>
+                for Julia 1.0 </dd>
             </dl>
             Originally based on:
             <ul>
-              <li> <a  href="http://docs.julialang.org/en/release-0.5/"  target="_blank">Julia
+              <li> <a  href="https://docs.julialang.org/en/v1/"  target="_blank">Julia 1.0
                   Documentation</a></li>
             </ul>
             <br />
@@ -114,46 +105,31 @@
               <ul>
                 <li> <b>Julia's nest</b>: <a  href="http://julialang.org/"  target="_blank">http://julialang.org/</a>
                 </li>
-                <li> <b>Julia Documentation</b>: <a  href="http://docs.julialang.org/en/release-0.5/"
-                     target="_blank">http://docs.julialang.org/en/release-0.5/</a>
+                <li> <b>Getting started</b>: <a  href="https://docs.julialang.org/en/v1/manual/getting-started/"
+             target="_blank">Julia documentation-Getting Started</a>,
+                     <a  href="https://learnxinyminutes.com/docs/julia/" target="_blank"> Learn Julia in a few minutes</a>
+                   </li>
+                <li> <b>Julia Documentation</b>: <a  href="https://docs.julialang.org/en/v1/"
+                     target="_blank">https://docs.julialang.org/en/v1/</a>
                 </li>
-                <li><b>Package index</b>: <a href="http://pkg.julialang.org/" target="_blank">http://pkg.julialang.org/</a>
-                </li>
+                <li> <b>Learning Julia</b>: <a href="https://julialang.org/learning/"
+                    target="_blank">https://julialang.org/learning/</a>,
+                    <a  target="_blank"  href="https://www.youtube.com/user/JuliaLanguage">YouTube JuliaLanguage</a>
 
-    <li> <b>Other learning resouces</b> <!-- Todo: complete -->:
-            <a  target="_blank"  href="https://www.youtube.com/user/JuliaLanguage">YouTube</a>
-    </li>
-    <li> <b>Getting started</b>: <a  href="http://docs.julialang.org/en/release-0.5/manual/getting-started/"
- target="_blank">Julia documentation-Getting Started</a>,
-         <a  href="https://learnxinyminutes.com/docs/julia/"
- target="_blank">
-         Learn Julia in a few minutes</a></li>
     <li><b>Topics</b>:
          <a  href="http://juliastats.github.io/"  target="_blank">JuliaStats - Statistics</a>,
          <a  href="http://www.juliaopt.org/"  target="_blank">JuliaOpt - Optimization</a>,
-         <a  href="https://github.com/JuliaDB"  target="_blank">JuliaDB - Database drivers</a>,
          <a  href="https://github.com/JuliaGPU"  target="_blank">JuliaGPU - GPU computing</a>,
          <a  href="https://github.com/BioJulia"  target="_blank">BioJulia - Bioinformatics and Computational Biology</a>,<br>
          <a  href="https://github.com/JuliaAstro"  target="_blank">Julia Astro - Astronomy</a>,
          <a  href="https://github.com/JuliaQuant"  target="_blank">JuliaQuant - Finance</a>,
          <a  target="_blank"  href="https://github.com/JuliaDSP">JuliaDSP - Digital signal processing</a>
     </li>
-     <li> <b>Mailing Lists</b>:
-            <a  href="https://groups.google.com/forum/#!forum/julia-news"  target="_blank">julia-news</a> - important announcements,
-            <a  href="https://groups.google.com/forum/#!forum/julia-users"  target="_blank">julia-users</a> -  general discussion related to the use of Julia,
-            <a  href="https://groups.google.com/forum/#!forum/julia-stats"  target="_blank">julia-stats</a> - statistical programming with Julia
-     </li>
+    <li><b>Package index</b>: <a href="http://pkg.julialang.org/" target="_blank">http://pkg.julialang.org/</a>
+    </li>
+
      <li> <b>Blog</b>:
             <a  href="http://www.juliabloggers.com/"  target="_blank">Julia Bloggers</a> </li>
-     <li> <b>Julia Development</b>:
-            <a  href="https://groups.google.com/forum/#!forum/julia-dev"  target="_blank">julia-dev</a> mailing list</li>
-     <li> <b>Books</b>:
-            <a href="https://en.wikibooks.org/wiki/Introducing_Julia" target="_blank">Introducing Julia</a> (Julia 0.4) by Wikibooks,
-            <a href="http://bogumilkaminski.pl/files/julia_express.pdf" target="_blank">The Julia Express</a> (Julia 0.4) by Bogumił Kamiński,
-            <a  target="_blank"  href="https://www.packtpub.com/application-development/getting-started-julia">Getting Started with Julia Programming</a> (Julia 0.3) by Ivo Balbaert (Packt Publishing),
-            <br/><a  href="https://www.packtpub.com/application-development/mastering-julia" target="_blank">Mastering Julia</a> (Julia 0.3) by Malcolm Sherrington (Packt Publishing)
-            and <a  target="_blank"  href="https://www.manning.com/books/learn-julia">Learn Julia</a> by Chris von Csefalvay (Manning, in Early Access).
-             <br>
     <li> <b>Other</b>:
          <a href="http://webchat.freenode.net/?channels=julia">#julia IRC channel</a>,
          <a href="http://stackoverflow.com/questions/tagged/julia-lang">julia-lang</a> tag on StackOverflow (question and answer site for programmers).
@@ -188,11 +164,11 @@
         <td>  Print ways to run Julia code and provide options</td>
       </tr>
     <tr>
-      <td> --color={yes|no} </td>
+      <td> --color={yes|no|auto} </td>
       <td> Enable or disable color text. </td>
     </tr>
       <tr>
-        <td> -O, --optimize</td>
+        <td> -O, --optimize={0,1,2,3}</td>
         <td> Run time-intensive code optimizations </td>
       </tr>
     <tr>
@@ -213,11 +189,16 @@
       julia --color=yes -O -- script.jl arg1 arg2..</code>
     </blockquote>
   </li>
-  <li><b>Graphical execution environments</b>
-        The <a  href="http://junolab.org/">Juno</a> integrated development environment (IDE)
-        and in the browser <a  href="https://www.juliabox.org/">JuliaBox.org</a> with IJulia notebooks.
 </ul>
 
+
+<h2> <a  name="REPL"  id="REPL"></a>Editors and Development Environments </h2>
+		  <ul>
+
+        <li><a  href="http://junolab.org/">Juno</a> Atom plugin.</li>
+				<li><a  href="https://github.com/JuliaEditorSupport/julia-vscode">Visual Studio Code</a> extension.
+				<li><a  href="https://github.com/JuliaLang/IJulia.jl">Jupyter</a> interactive environment.
+</ul>
 
 
 <!-- ENVIRONMENT VARIABLES -->
@@ -238,14 +219,14 @@
       <td></td>
     </tr>
     <tr>
-      <td> '<i>expr</i>;' + ENTER </td>
+      <td> '<i>expr</i>' + ENTER </td>
       <td> Evaluates expression and shows result</td>
-      <td></td>
+      <td>2+3</td>
     </tr>
     <tr>
       <td> '<i>expr</i>'<b>;</b> + ENTER </td>
-      <td> Evaluates expression without showint the result</td>
-      <td></td>
+      <td> Evaluates expression without showing the result</td>
+      <td>2+3;</td>
     </tr>
     <tr>
       <td> <b>ans</b> </td>
@@ -253,18 +234,13 @@
       <td></td>
     </tr>
     <tr>
-      <td> CTRL + C </td>
+      <td> CTRL + c </td>
       <td> Interrupts current command </td>
       <td></td>
     </tr>
     <tr>
-      <td> CTRL + L </td>
+      <td> CTRL + l </td>
       <td> Clear screen </td>
-      <td></td>
-    </tr>
-    <tr>
-      <td> workspace() </td>
-      <td> Resets session, variables are cleared </td>
       <td></td>
     </tr>
     <tr>
@@ -278,7 +254,7 @@
       <td></td>
     </tr>
     <tr>
-      <td> CTRL + R </td>
+      <td> CTRL + r </td>
       <td> Reverse search ((reverse-i-search)`':) through previous commands </td>
       <td> (reverse-i-search)`print':</td>
     </tr>
@@ -300,7 +276,7 @@
     <tr>
       <td> <i>str</i> + Tab key once</td>
       <td> Autocompletion starting with <i>str</i> </td>
-      <td> Pkg.up + Tab key once</td>
+      <td> rad + Tab key once</td>
     </tr>
     <tr>
       <td> <i>str</i> + Tab key twice</td>
@@ -321,16 +297,6 @@
     <td> versioninfo()</td>
     <td> Prints detailed information about the version of Julia</td>
     <td></td>
-  </tr>
-  <tr>
-    <td> print_with_color(color::Symbol, string) </td>
-    <td> Prints string in specified color</td>
-    <td> print_with_color(:blue, "Hello Julia")</td>
-  </tr>
-  <tr>
-    <td> display(x) </td>
-    <td> Dysplays x using the richest supported multimedia output</td>
-    <td> </td>
   </tr>
   </tbody>
 </table>
@@ -353,77 +319,15 @@
       <td> VERSION::VersionNumber </td>
       <td> Julia version number</td>
     </tr>
-    <tr>
-      <td> WORD_SIZE </td>
-      <td> Number of bits used to represent an integer</td>
-    </tr>
-    <tr>
+<!--    <tr>
       <td> ARGS::Array{UTF8String,1} </td>
       <td> Command line arguments passed to the script in execution
           </td>
-    </tr>
+    </tr> -->
   </tbody>
 </table>
 
 
-<!-- PACKAGES -->
-<h2> <a id="Packages" name="Packages"></a>Packages </h2>
-<table>
-  <caption> Packages </caption>
-  <thead>
-    <tr>
-      <th> _____ </th>
-      <th> _____ </th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td> Pkg.init() </td>
-      <td> Creates package repository folder and clones METADATA from Git </td>
-    </tr>
-    <tr>
-      <td> Pkg.dir() </td>
-      <td> Path of the package directory</td>
-    </tr>
-    <tr>
-      <td> Pkg.status() </td>
-      <td> Lists installed packages with their versions</td>
-    </tr>
-    <tr>
-      <td> Pkg.installed() </td>
-      <td> Returns a dictionary in the form of installed packages =&gt; version number</td>
-    </tr>
-    <tr>
-      <td> Pkg.update() </td>
-      <td> Updates database of installed packages </td>
-    </tr>
-    <tr>
-      <td> Pkg.add(&quot;<i>PackageName</i>&quot;) </td>
-      <td> Add new package </td>
-    </tr>
-    <tr>
-      <td> using <i>PackageName</i> </td>
-      <td> Loads given package or module. Its exported names (functions, variables) are available for use.<br>
-           Names can be used by dot syntax, wether they are exported or not.  </td>
-    </tr>
-    <tr>
-      <td> Pkg.rm(&quot;<i>PackageName</i>&quot;) </td>
-      <td> Remove package </td>
-    </tr>
-    <tr>
-    <tr>
-        <td> Pkg.checkout(&quot;<i>PackageName</i>&quot;) </td>
-        <td> Use the master version of a package rather than one of its registered versions </td>
-    </tr>
-      <td> Pkg.free(&quot;<i>PackageName</i>&quot;) </td>
-      <td> Revert package to registered version, no longer checked out on a branch  </td>
-    </tr>
-    <tr>
-        <td> Pkg.clone(&quot;<i>url</i>&quot;) </td>
-        <td> Install an unregistered package from the git <i>url</i></td>
-    </tr>
-  </tbody>
-</table>
 
 
 <!-- INTERNALS -->
@@ -447,15 +351,6 @@
       <td> code_native (<i>f</i>, <i>types</i>)</td>
       <td> Prints the native assembly instructions generated for running the method matching the given generic function and type signature</td>
       <td> code_native(rand,(Int64,))</td>
-    </tr>
-    <tr>
-      <td> gc()</td>
-      <td> Performs garbage collection (not recommended)</td>
-      <td> </td>
-      <tr>
-        <td> gc_enable(on::Bool)</td>
-        <td> Enables/disables garbage collection (extre caution)</td>
-        <td> </td>
     </tr>
   </tbody>
 </table>
@@ -490,19 +385,19 @@
     </tr>
     <tr>
       <td> a	<b>=</b>	b	<b>=</b>	c	<b>=</b> 5</td>
-      <td> Chained assigment</td>
+      <td> Chained assigment (example)</td>
     </tr>
     <tr>
       <td> 0	<b><</b>	x	<b><</b>	3 </td>
-      <td> Chained comparison </td>
+      <td> Chained comparison (example)</td>
     </tr>
     <tr>
-      <td> a<b>,</b>	b	=	b<b>,</b>	a </td>
-      <td> Assigment for several variables</td>
+      <td> a<b>,</b>	b	=	10<b>,</b>	5 </td>
+      <td> Assigment for several variables (example)</td>
     </tr>
     <tr>
-      <td> 3*x^2-2*x+3 = 3x^2-2x+3 </td>
-      <td> The multiplication operator can be ommitted</td>
+      <td> 3*x+2 == 3x+2 </td>
+      <td> The multiplication operator can be ommitted (example)</td>
     </tr>
     <tr>
       <td>  </td>
@@ -511,6 +406,42 @@
   </tbody>
 </table>
 
+<!-- VARIABLES -->
+<h2> <a id="Variables" name="Variables"></a>Variables </h2>
+<ul>
+<li>The only explicitly disallowed names for variables are the names of built-in statements.</li>
+</ul>
+<table>
+  <caption> Syntax </caption>
+  <thead>
+    <tr>
+      <th> _____ </th>
+      <th> _____ </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td> UniversalDeclarationOfHumanRightsStart = &quot;人人生而自由，在尊严和权利上一律平等。&quot;</td>
+      <td> Unicode (UTF-8) values are allowed </td>
+    </tr>
+    <tr>
+      <td> 안녕하세요 = &quot;Hello&quot; </td>
+      <td> Unicode names (in UTF-8 encoding) are allowed </td>
+    </tr>
+    <tr>
+      <td> δ = 0.00001 </td>
+      <td> Unicode math symbol as variable name </td>
+    </tr>
+    <tr>
+      <td>  </td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+<ul>
+<li>Unicode math symbols can be obtained by typing the backslashed LaTeX symbol name followed by tab, e.g. <code>δ</code> can be entered by typing <code>\delta</code>-<em>tab</em>.</li>
+<li><code>help?> α</code> prints how to type the symbol α.</li>
+</ul>
 
 <!-- TYPES -->
 <h2> <a id="Types" name="Types"></a>Types </h2>
@@ -518,7 +449,7 @@ The actual type of a value in Julia is always a <i>concrete type</i>.
 <br><i>Abstract types</i> are useful:
 <ul>
 	<li> As guide for type conversion operations</li>
-	<li> For funtions that by operating on abstracy types work for all the types underneath.
+	<li> For functions that by operating on abstract types work for all the types underneath.
 </ul>
 
 <table>
@@ -537,14 +468,9 @@ The actual type of a value in Julia is always a <i>concrete type</i>.
       <td> </td>
     </tr>
     <tr>
-      <td> <b>None</b> </td>
-      <td> Has no values. No object can have this type, but it is a subtype of every type</td>
-      <td> </td>
-    </tr>
-    <tr>
       <td> <b>DataType</b> </td>
       <td> The type of the types themselves</td>
-      <td> typeof(Float64) </td>
+      <td> typeof(Float64) == DataType </td>
     </tr>
     <tr>
       <td> &lt;: </td>
@@ -554,8 +480,8 @@ The actual type of a value in Julia is always a <i>concrete type</i>.
 
     <tr>
       <td> var::TypeName </td>
-      <td> Declares variable and type</td>
-      <td> name::ASCIIString</td>
+      <td> Indicates variable and type</td>
+      <td> name::String</td>
     </tr>
     <tr>
       <td> typeof(x) </td>
@@ -565,7 +491,7 @@ The actual type of a value in Julia is always a <i>concrete type</i>.
     <tr>
       <td> isa(x, T) </td>
       <td> Tests wether <i>x</i> is of type <i>T</i>.</td>
-      <td> </td>
+      <td> isa(x, Int64)</td>
     </tr>
     <tr>
       <td> convert(NewType, x) </td>
@@ -575,7 +501,7 @@ The actual type of a value in Julia is always a <i>concrete type</i>.
     <tr>
       <td> (expr)::TypeName </td>
       <td> Type assertion for expression; raises error if <i>expr</i> is not of <i>TypeName</i></td>
-      <td> (6+8)::ASCIIString</td>
+      <td> (6+8)::String</td>
     </tr>
     <tr>
       <td>  </td>
